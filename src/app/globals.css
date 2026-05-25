@@ -1,0 +1,381 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .text-pretty  { text-wrap: pretty;  }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   British Best Casino Sites — Dark Luxury Casino Theme
+   Palette: Deep Navy Black · Crimson Red · Rich Gold
+   ────────────────────────────────────────────────────────────── */
+@layer base {
+  :root {
+    --font-sans:    var(--font-inter);
+    --font-display: var(--font-playfair);
+
+    /* ── Base ── */
+    --background:         220 20% 4%;      /* deep navy-black #080C12 */
+    --foreground:         40 30% 94%;      /* warm off-white */
+
+    --card:               220 18% 7%;      /* dark card #0E1219 */
+    --card-foreground:    40 30% 94%;
+
+    --popover:            220 18% 7%;
+    --popover-foreground: 40 30% 94%;
+
+    /* ── Crimson Red primary ── */
+    --primary:            350 75% 42%;     /* #C41E3A crimson */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary:          220 16% 10%;     /* #141821 */
+    --secondary-foreground: 40 20% 72%;
+
+    --muted:              220 16% 10%;
+    --muted-foreground:   220 8% 48%;
+
+    /* ── Gold accent ── */
+    --accent:             43 70% 50%;      /* #D4AF37 rich gold */
+    --accent-foreground:  220 20% 4%;
+
+    /* ── Destructive ── */
+    --destructive:        350 75% 42%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border:             220 15% 13%;     /* #181E28 */
+    --input:              220 15% 13%;
+    --ring:               43 70% 50%;
+    --radius:             0.75rem;
+
+    /* ── Custom semantic tokens ── */
+    --gold:               43 70% 50%;
+    --gold-bright:        43 88% 62%;
+    --gold-dim:           43 50% 36%;
+    --gold-subtle:        43 45% 14%;
+
+    --crimson:            350 75% 42%;
+    --crimson-bright:     350 82% 52%;
+    --crimson-dim:        350 62% 28%;
+    --crimson-subtle:     350 55% 10%;
+
+    --surface-1:          220 18% 7%;
+    --surface-2:          220 16% 10%;
+    --surface-3:          220 15% 13%;
+
+    --text-primary:       40 30% 94%;
+    --text-secondary:     40 15% 66%;
+    --text-muted:         220 8% 44%;
+  }
+
+  * { @apply border-border; }
+
+  html {
+    @apply bg-background;
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    background-image:
+      radial-gradient(ellipse 120% 50% at 50% 0%, hsl(var(--crimson) / 0.06) 0%, transparent 60%),
+      url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.014'%3E%3Cpath d='M30 0l3.09 9.51L42 6.18l-6.18 9L45 18l-9.51 3.09L39 30l-9.51-3.09L26.91 36 30 30l-9.51 3.09L23.82 24 15 27.09l9.51-3.09L21.09 15 30 18.91z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  h1, h2, h3, h4, h5 {
+    @apply font-serif;
+  }
+
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: hsl(var(--background)); }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--crimson-dim));
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover { background: hsl(var(--crimson)); }
+}
+
+/* ────────────────────────────────────────────
+   Decorative rules
+   ──────────────────────────────────────────── */
+.rule-gold {
+  height: 1px;
+  background: linear-gradient(to right, transparent, hsl(var(--gold)), transparent);
+}
+.rule-crimson {
+  height: 1px;
+  background: linear-gradient(to right, transparent, hsl(var(--crimson)), transparent);
+}
+
+/* ────────────────────────────────────────────
+   Section dividers
+   ──────────────────────────────────────────── */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    hsl(var(--gold) / 0.35) 30%,
+    hsl(var(--gold) / 0.35) 70%,
+    transparent 100%
+  );
+}
+.section-divider-crimson {
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    hsl(var(--crimson) / 0.45) 50%,
+    transparent 100%
+  );
+}
+
+/* ────────────────────────────────────────────
+   Eyebrow labels
+   ──────────────────────────────────────────── */
+.eyebrow {
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-family: var(--font-sans);
+}
+.eyebrow-gold    { @apply eyebrow; color: hsl(var(--gold)); }
+.eyebrow-crimson { @apply eyebrow; color: hsl(var(--crimson)); }
+.eyebrow-muted   { @apply eyebrow; color: hsl(var(--text-muted)); }
+
+/* ────────────────────────────────────────────
+   Gold shimmer text
+   ──────────────────────────────────────────── */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+.text-gold-shimmer {
+  background: linear-gradient(
+    90deg,
+    hsl(43, 55%, 38%) 0%,
+    hsl(43, 92%, 66%) 40%,
+    hsl(43, 55%, 38%) 60%,
+    hsl(43, 92%, 66%) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 5s linear infinite;
+}
+
+/* ────────────────────────────────────────────
+   Animations
+   ──────────────────────────────────────────── */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.97); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes pulse-border {
+  0%, 100% { border-color: hsl(var(--gold) / 0.25); }
+  50%       { border-color: hsl(var(--gold) / 0.7); }
+}
+
+.animate-fade-in       { animation: fade-in      0.6s ease-out both; }
+.animate-fade-in-up    { animation: fade-in-up   0.55s ease-out both; }
+.animate-scale-in      { animation: scale-in     0.3s ease-out both; }
+.animate-pulse-border  { animation: pulse-border 2.5s ease-in-out infinite; }
+
+/* ────────────────────────────────────────────
+   Background helpers
+   ──────────────────────────────────────────── */
+.bg-surface-1 { background-color: hsl(var(--surface-1)); }
+.bg-surface-2 { background-color: hsl(var(--surface-2)); }
+.bg-surface-3 { background-color: hsl(var(--surface-3)); }
+
+.bg-hero-casino {
+  background-color: hsl(var(--background));
+  background-image:
+    radial-gradient(ellipse 90% 70% at 50% 0%, hsl(var(--crimson) / 0.14) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 40% at 85% 50%, hsl(var(--gold) / 0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 15% 50%, hsl(var(--gold) / 0.04) 0%, transparent 60%);
+}
+
+/* Playing card suit watermark pattern */
+.bg-card-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='10' y='50' font-size='36' fill='%23ffffff' fill-opacity='0.025' font-family='serif'%3E%E2%99%A0%3C/text%3E%3Ctext x='50' y='30' font-size='24' fill='%23ffffff' fill-opacity='0.018' font-family='serif'%3E%E2%99%A5%3C/text%3E%3C/svg%3E");
+}
+
+/* ────────────────────────────────────────────
+   Card variants — rounded elegant
+   ──────────────────────────────────────────── */
+.casino-card {
+  background-color: hsl(var(--surface-1));
+  border: 1px solid hsl(var(--border));
+  border-radius: 0.875rem;
+  overflow: hidden;
+  transition: box-shadow 0.25s, border-color 0.25s;
+}
+.casino-card:hover {
+  border-color: hsl(var(--gold) / 0.35);
+  box-shadow: 0 8px 32px hsl(var(--crimson) / 0.08), 0 2px 8px hsl(0 0% 0% / 0.4);
+}
+.casino-card-top {
+  border-color: hsl(var(--gold) / 0.4);
+  box-shadow: 0 0 0 1px hsl(var(--gold) / 0.15), 0 8px 40px hsl(var(--crimson) / 0.1);
+}
+
+/* ────────────────────────────────────────────
+   Trust badge pills
+   ──────────────────────────────────────────── */
+.trust-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  background-color: hsl(var(--surface-2));
+  border: 1px solid hsl(var(--border));
+  font-size: 0.68rem;
+  font-weight: 600;
+  font-family: var(--font-sans);
+  letter-spacing: 0.04em;
+  color: hsl(var(--text-secondary));
+  transition: border-color 0.2s, color 0.2s;
+}
+.trust-pill:hover {
+  border-color: hsl(var(--gold) / 0.5);
+  color: hsl(var(--foreground));
+}
+
+/* ────────────────────────────────────────────
+   Buttons
+   ──────────────────────────────────────────── */
+.btn-claim {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.8rem 1.75rem;
+  background: linear-gradient(135deg, hsl(var(--crimson)) 0%, hsl(var(--crimson-bright)) 100%);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: box-shadow 0.2s, filter 0.2s;
+}
+.btn-claim:hover {
+  box-shadow: 0 0 20px hsl(var(--crimson) / 0.45);
+  filter: brightness(1.08);
+}
+
+/* ────────────────────────────────────────────
+   Info / editorial section cards
+   ──────────────────────────────────────────── */
+.info-card {
+  background-color: hsl(var(--surface-1));
+  border: 1px solid hsl(var(--border));
+  border-radius: 0.75rem;
+  padding: 1.5rem 1.75rem;
+  border-left: 3px solid hsl(var(--crimson) / 0.5);
+  transition: border-left-color 0.2s;
+}
+.info-card:hover {
+  border-left-color: hsl(var(--crimson));
+}
+.info-card-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: hsl(var(--crimson-subtle));
+  border: 1px solid hsl(var(--crimson) / 0.25);
+  border-radius: 0.5rem;
+  flex-shrink: 0;
+}
+
+/* ────────────────────────────────────────────
+   FAQ accordion
+   ──────────────────────────────────────────── */
+.faq-item {
+  background-color: hsl(var(--surface-1));
+  border: 1px solid hsl(var(--border));
+  border-radius: 0.75rem;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+.faq-item:hover {
+  border-color: hsl(var(--gold) / 0.3);
+}
+
+/* ────────────────────────────────────────────
+   Policy page layout
+   ──────────────────────────────────────────── */
+.policy-section {
+  margin-bottom: 3rem;
+  padding-left: 1.5rem;
+  border-left: 2px solid hsl(var(--crimson) / 0.4);
+}
+.policy-section h2 {
+  font-family: var(--font-playfair);
+  color: hsl(var(--gold));
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+.policy-section h3 {
+  font-family: var(--font-playfair);
+  color: hsl(var(--foreground));
+  font-size: 1.05rem;
+  margin-top: 1.25rem;
+  margin-bottom: 0.6rem;
+}
+.policy-section p {
+  color: hsl(var(--text-secondary));
+  line-height: 1.75;
+  margin-bottom: 0.875rem;
+}
+.policy-section ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 0.875rem;
+}
+.policy-section ul li {
+  color: hsl(var(--text-secondary));
+  line-height: 1.75;
+  padding-left: 1.25rem;
+  position: relative;
+  margin-bottom: 0.3rem;
+}
+.policy-section ul li::before {
+  content: "o";
+  font-size: 0.45rem;
+  position: absolute;
+  left: 0;
+  top: 0.45rem;
+  color: hsl(var(--gold));
+}
+
+/* ────────────────────────────────────────────
+   Footer
+   ──────────────────────────────────────────── */
+.footer-link {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.875rem;
+  color: hsl(var(--text-muted));
+  transition: color 0.2s;
+}
+.footer-link:hover {
+  color: hsl(var(--gold));
+}
