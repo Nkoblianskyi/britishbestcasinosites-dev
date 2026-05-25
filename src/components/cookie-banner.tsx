@@ -2,7 +2,6 @@
 
 import { useCookieConsent } from "@/context/cookie-consent-context"
 import Link from "next/link"
-import { Cookie } from "lucide-react"
 
 export function CookieBanner() {
   const { showBanner, acceptAll, declineAll } = useCookieConsent()
@@ -26,9 +25,6 @@ export function CookieBanner() {
 
             {/* Icon + Text */}
             <div className="flex items-start gap-3 flex-1">
-              <div className="shrink-0 w-9 h-9 bg-[hsl(var(--crimson-subtle))] border border-[hsl(var(--crimson))]/30 flex items-center justify-center mt-0.5">
-                <Cookie className="w-4 h-4 text-[hsl(var(--crimson))]" aria-hidden="true" />
-              </div>
               <div>
                 <p className="eyebrow-gold mb-1">Cookie Notice</p>
                 <p className="text-sm text-[hsl(var(--text-secondary))] leading-relaxed">
