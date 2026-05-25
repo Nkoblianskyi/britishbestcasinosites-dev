@@ -41,17 +41,17 @@ export function AdvertiserInfoModal({ isOpen, onClose }: AdvertiserInfoModalProp
         {/* Body */}
         <div className="px-6 py-6 space-y-4">
           <p className="text-sm font-serif font-semibold text-foreground leading-snug">
-            BritishBestCasinoSites.com is a free comparison service helping UK players find the best UKGC-licenced casinos.
+            BritishBestCasinoSites.com is an independent, completely free comparison guide built to help British players shortlist trustworthy UKGC-licensed online casinos in a matter of minutes.
           </p>
           <div className="space-y-3 border-t border-border pt-4">
             <p className="text-sm text-muted-foreground leading-relaxed">
-              We may receive affiliate commissions when you register with featured casinos through our links. These partnerships help us provide free editorial content and exclusive bonuses, but never influence our rankings or reviews.
+              When you open an account with one of the brands featured on BritishBestCasinoSites.com, we may earn an affiliate fee from that operator. This commercial model funds our editorial team and unlocks exclusive welcome offers, but it has no bearing on how we rank, score or review any casino.
             </p>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              All featured casinos hold valid UK Gambling Commission licences, ensuring full player protection.
+              We only list casinos that operate under a current UK Gambling Commission licence, so every recommendation on BritishBestCasinoSites.com complies with British player-protection, KYC and fair-gaming standards.
             </p>
             <p className="text-xs text-muted-foreground/60 leading-relaxed">
-              Casino offers change regularly. Always verify current terms directly with the operator before claiming. Gamble responsibly - BeGambleAware.org.
+              Promotions, wagering requirements and game catalogues can change at short notice - always double-check the live terms on the operator's own website before you opt in. Play within your limits and seek free help at BeGambleAware.org if gambling stops being enjoyable.
             </p>
           </div>
 

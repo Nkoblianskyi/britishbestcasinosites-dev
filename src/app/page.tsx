@@ -94,6 +94,19 @@ export default function Home() {
               {/* Disclaimer */}
               <p className="text-[9px] md:text-[10px] text-[hsl(var(--text-muted))] font-sans">
                 18+ only. Gamble responsibly. BeGambleAware.org.{" "}
+                <button
+                  onClick={() => setIsAdvertiserModalOpen(true)}
+                  className="text-[hsl(var(--gold))]/55 hover:text-[hsl(var(--gold))] underline underline-offset-2 transition-colors"
+                >
+                  Advertiser Disclosure
+                </button>
+                {" "}/{" "}
+                <button
+                  onClick={() => setIsAgeModalOpen(true)}
+                  className="text-[hsl(var(--gold))]/55 hover:text-[hsl(var(--gold))] underline underline-offset-2 transition-colors"
+                >
+                  Age Verification
+                </button>
               </p>
 
             </div>

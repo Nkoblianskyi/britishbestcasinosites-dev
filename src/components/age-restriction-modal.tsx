@@ -41,17 +41,17 @@ export function AgeRestrictionModal({ isOpen, onClose }: AgeRestrictionModalProp
         {/* Body */}
         <div className="px-6 py-6 space-y-4">
           <p className="text-sm font-serif font-semibold text-foreground leading-snug">
-            This website is strictly for individuals aged 18 or over. By using our site, you confirm you meet this legal requirement.
+            Access to BritishBestCasinoSites.com is reserved for adults aged 18 and above. Continuing past this notice confirms that you meet the minimum legal age for gambling in the United Kingdom.
           </p>
           <div className="space-y-3 border-t border-border pt-4">
             <p className="text-sm text-muted-foreground leading-relaxed">
-              All featured casinos are licensed by the UK Gambling Commission, ensuring player protection and responsible gambling standards.
+              Every operator listed on BritishBestCasinoSites.com holds an active UK Gambling Commission licence, giving British players verified protection, fair-play guarantees and full access to UKGC dispute resolution.
             </p>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Gambling should be for entertainment only. Never bet with money you cannot afford to lose.
+              Treat real-money play as paid entertainment - set a personal budget before you start, stick to it, and never wager funds you cannot comfortably afford to lose.
             </p>
             <p className="text-xs text-muted-foreground/60 leading-relaxed">
-              For support with gambling issues: BeGambleAware.org, GamCare.org.uk, or call the National Gambling Helpline: <strong className="text-muted-foreground">0808 8020 133</strong>.
+              If gambling stops being fun, free confidential help is available 24/7 via BeGambleAware.org and GamCare.org.uk, or by calling the National Gambling Helpline on <strong className="text-muted-foreground">0808 8020 133</strong>.
             </p>
           </div>
 
