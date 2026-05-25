@@ -5,7 +5,6 @@ import Image from "next/image"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { BettingSitesList } from "@/components/betting-sites-list"
-import { TopOffersModal } from "@/components/top-offers-modal"
 import { AgeRestrictionModal } from "@/components/age-restriction-modal"
 import { AdvertiserInfoModal } from "@/components/advertiser-info-modal"
 import { FaqSection } from "@/components/faq-section"
@@ -238,7 +237,6 @@ export default function Home() {
 
       </div>
 
-      <TopOffersModal />
       <AgeRestrictionModal isOpen={isAgeModalOpen} onClose={() => setIsAgeModalOpen(false)} />
       <AdvertiserInfoModal isOpen={isAdvertiserModalOpen} onClose={() => setIsAdvertiserModalOpen(false)} />
       <SiteFooter />
